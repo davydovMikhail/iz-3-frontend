@@ -1,0 +1,46 @@
+<template>
+  <div class="double-border-button">{{ text }}</div>
+</template>
+
+<script>
+export default {
+  name: 'Btn',
+  props: {
+    text: String
+  }
+}
+</script>
+
+<style scoped>
+
+.double-border-button {
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 20px;
+  padding: 10px 30px;
+  position: relative;
+  border: 2px solid #f1c40f;
+  color: #f1c40f;
+  font-family: 'Montserrat', sans-serif;
+  transition: .4s;
+}
+.double-border-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: .4s;
+}
+.double-border-button:hover:after {
+  border-color: #f1c40f;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
+}
+ 
+</style>
