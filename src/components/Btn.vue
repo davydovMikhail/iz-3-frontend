@@ -1,5 +1,5 @@
 <template>
-  <div class="double-border-button">{{ text }}</div>
+  <div @click="$emit('click')" class="double-border-button">{{ text }}</div>
 </template>
 
 <script>
