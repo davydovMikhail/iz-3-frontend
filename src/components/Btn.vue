@@ -1,10 +1,15 @@
 <template>
-  <div @click="$emit('click')" class="double-border-button">{{ text }}</div>
+  <button @click="$emit('click')" class="double-border-button" :disabled='BTN_DISABLED'>{{ text }}</button>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Btn',
+  computed: {
+    ...mapGetters(['BTN_DISABLED'])
+  },
   props: {
     text: String
   }
