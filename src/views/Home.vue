@@ -32,7 +32,11 @@ export default {
   methods: {
     ...mapActions(['CONNECT_METAMASK', 'CLAIM', 'STAKE', 'UNSTAKE']),
     async handleStake() {
-      await this.STAKE(this.stake_amount);
+      if (this.stake_amount > 0) {
+        await this.STAKE(this.stake_amount);
+      } else {
+        this.$vToastify.error('Amount must be positive', 'Validation error');
+      }
     }
   },
   computed: {
